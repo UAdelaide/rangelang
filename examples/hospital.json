@@ -1,0 +1,95 @@
+[
+	{
+		"type": "types",
+		"types": [
+			"attack",
+			"cluster",
+			"environment",
+			"event",
+			"machine",
+			"network",
+			"os",
+			"researcher",
+			"subnet",
+			"vuln"
+		]
+	},
+	{
+		"id": "researcher-2348efb348",
+		"type": "researcher",
+		"name": "John Doe",
+		"email": "john.doe@example.com"
+	},
+	{
+		"id": "os-e324f38a932",
+		"type": "os",
+		"image_id": "ami-0f5d1713c9af4fe30",
+		"name": "Ubuntu Server",
+		"version": "24.04",
+		"arch": "amd64"
+	},
+	{
+		"id": "env-235743858234",
+		"type": "environment",
+		"name": "hospital"
+	},
+	{
+		"id": "mach-457369345826",
+		"type": "machine",
+		"name": "hospital-master",
+		"researcher": "researcher-2348efb348",
+		"os": "os-e324f38a932",
+		"cpu": 4,
+		"ram": 8,
+		"disks": [250],
+		"packages": ["python3", "open-iscsi"],
+		"vulns": ["vuln-a34dc2349"],
+		"owners": ["env-235743858234"]
+	},
+	{
+		"id": "mach-e3489f340043",
+		"type": "machine",
+		"name": "hospital-worker1",
+		"researcher": "researcher-2348efb348",
+		"os": "os-e324f38a932",
+		"cpu": 4,
+		"ram": 8,
+		"disks": [250],
+		"packages": ["python3", "open-iscsi"]
+	},
+	{
+		"id": "mach-a4238400022",
+		"type": "machine",
+		"name": "hospital-worker2",
+		"researcher": "researcher-2348efb348",
+		"os": "os-e324f38a932",
+		"cpu": 4,
+		"ram": 8,
+		"disks": [250],
+		"packages": ["python3", "open-iscsi"]
+	},
+	{
+		"id": "cluster-34ae7359",
+		"type": "cluster",
+		"master": "mach-457369345826",
+		"workers": ["mach-e3489f340043", "mach-a4238400022"]
+	},
+	{
+		"id": "vuln-a34dc2349",
+		"type": "vuln",
+		"name": "spectre",
+		"patch": "https://redteam.home/spectre"
+	},
+	{
+		"id": "attack-2ac3447e49f",
+		"type": "attack",
+		"when": "2025-08-04T06:19:07Z",
+		"script": "https://redteam.home/attack.sh"
+	},
+	{
+		"id": "event-68230ad382c",
+		"type": "event",
+		"time": "2025-08-03T07:19:07Z",
+		"await": ["event-ad92478c23"]
+	}
+]
